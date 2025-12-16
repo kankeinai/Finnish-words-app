@@ -41,13 +41,6 @@ bun dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Login Credentials
-
-For practice mode access:
-- **Username**: admin
-- **Password**: admin
-
-
 ## Project Structure
 
 ```
@@ -96,13 +89,6 @@ ajattella (3), ajattelen;to think;думать;verb;Actions & Movement
 - Session persistence using localStorage and cookies
 - 7-day cookie expiration
 - Protected practice mode route
-
-## Building for Production
-
-```bash
-npm run build
-npm run start
-```
 
 ## License
 
