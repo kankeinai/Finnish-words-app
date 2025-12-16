@@ -354,8 +354,15 @@ export default function WordsTable({ words }: WordsTableProps) {
             {/* Table */}
             <div className="rounded-lg border overflow-hidden flex-1 flex flex-col min-h-0">
               {/* Table Header - Fixed */}
-              <div className="bg-muted border-b-2">
-                <table className="w-full">
+              <div className="bg-muted border-b-2 overflow-y-scroll">
+                <table className="w-full table-fixed">
+                  <colgroup>
+                    <col style={{ width: "25%" }} />
+                    <col style={{ width: "25%" }} />
+                    <col style={{ width: "25%" }} />
+                    <col style={{ width: "15%" }} />
+                    <col style={{ width: "10%" }} />
+                  </colgroup>
                   <thead>
                     <tr>
                       <th className="px-4 py-3 text-left text-sm font-semibold">
@@ -379,8 +386,15 @@ export default function WordsTable({ words }: WordsTableProps) {
               </div>
               
               {/* Table Body - Scrollable */}
-              <div className="overflow-auto flex-1 min-h-0">
-                <table className="w-full">
+              <div className="overflow-y-scroll flex-1 min-h-0">
+                <table className="w-full table-fixed">
+                  <colgroup>
+                    <col style={{ width: "25%" }} />
+                    <col style={{ width: "25%" }} />
+                    <col style={{ width: "25%" }} />
+                    <col style={{ width: "15%" }} />
+                    <col style={{ width: "10%" }} />
+                  </colgroup>
                   <tbody className="divide-y">
                     {filteredWords.map((word, index) => (
                       <tr key={index} className={`transition-colors ${getRowColor(word.type)}`}>
