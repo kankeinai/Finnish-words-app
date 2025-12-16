@@ -1,9 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Finnish Words App
+
+A web application for learning Finnish vocabulary with translations in English and Russian. Built with Next.js, React, and Tailwind CSS.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18.x or higher
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/finnish-words-app.git
+cd finnish-words-app
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
@@ -14,23 +39,79 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Login Credentials
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+For practice mode access:
+- **Username**: admin
+- **Password**: admin
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+finnish-words-app/
+├── app/
+│   ├── components/
+│   │   └── WordsTable.tsx      # Main table component with filtering
+│   ├── config/
+│   │   └── topics.ts           # Topic configuration
+│   ├── login/
+│   │   └── page.tsx            # Login page
+│   ├── practice/
+│   │   └── page.tsx            # Practice page (auth required)
+│   ├── globals.css             # Global styles
+│   ├── layout.tsx              # Root layout
+│   ├── not-found.tsx           # 404 page
+│   └── page.tsx                # Home page (server component)
+├── components/
+│   └── ui/                     # shadcn/ui components
+├── OmaSuomi words.csv          # Word database
+└── public/                     # Static assets
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Data Format
 
-## Deploy on Vercel
+The word data is stored in `OmaSuomi words.csv` with the following structure:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```csv
+finnish;english;russian;type;group
+ajattella (3), ajattelen;to think;думать;verb;Actions & Movement
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Features in Detail
+
+### Filtering
+- Filter by topic from the sidebar
+- Filter by word type using interactive badges
+- Combine topic and type filters for precise results
+
+### Search
+- Real-time search across all three languages
+- Case-insensitive matching
+- Works in combination with filters
+
+### Authentication
+- Session persistence using localStorage and cookies
+- 7-day cookie expiration
+- Protected practice mode route
+
+## Building for Production
+
+```bash
+npm run build
+npm run start
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+**Milana Begantsova**
+
+## Acknowledgments
+
+- Word data sourced from OmaSuomi language learning materials
+- UI components from shadcn/ui
+- Built with Next.js and Tailwind CSS
